@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="cuaa" id="i1">BIENVENIDO</div>
+<div class="bt" id="i2" onclick="crono()">tiempo</div>
+<div class="bt2" id="i6" onclick="nume()">ingresar</div>
+<div class="bt3" id="i7" onclick="cambi()">cambiar</div>
+
+<form>
+	<input type="text" class="in" id="ing" placeholder="Respuesta">
+</form>
+<div class="sco" id="i3">SCORE</div>
+<div class="ti" id="i4">TIME</div>
+
+<script>
+	x=60;
+	t=0;
+	scor=0;
+	resul=0;
+	function crono(){
+		ingre();
+		x=x-1;
+		i4.innerHTML=x;
+		if(x<=0)
+		{
+			clearInterval(cronoo);
+				i4.innerHTML="Time: "+x;
+		}
+	}
+	
+	function ingre(){
+	if (t==0) {
+		cronoo=setInterval(crono,1000);
+		t=1;
+	}
+   }
+
+   function nume(){
+   	    i3.innerHTML=scor;
+   		ingn=Number(ing.value);
+				if (ingn==resul) {
+					scor=scor+10;
+					i3.innerHTML="SCORE"+" "+scor;
+					console.log("Bueno");
+				}
+				else{
+					scor=scor-10;
+					i3.innerHTML="SCORE"+" "+scor;
+					console.log("Malo");
+				}
+		}
+
+
+   function cambi(){
+   		num= Math.floor((Math.random() * (11-1))+1);
+   		num2= Math.floor((Math.random() * (11-1))+1);
+   		ope= Math.floor((Math.random() * (3-1))+1);
+   		if (ope==1) {
+				i1.innerHTML=num+" + "+num2;
+				i1.style.left=40+"%";
+				resul=num+num2;		
+   }
+   else{
+   				i1.innerHTML=num+" - "+num2;
+   				i1.style.left=40+"%";
+				resul=num-num2;		
+   }
+
+   }
+
+</script>
+
+</body>
+</html>
